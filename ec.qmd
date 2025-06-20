@@ -1,5 +1,29 @@
 ---
 title: "Economic Connectedness"
+Author: rishi bethina
 format: html
 ---
+
+```{r}
+library(tidyverse)
+library(primer.data)
+```
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(scales)  # For better axis formatting
+
+ggplot(connectedness, aes(x = population, y = connectedness)) +
+  geom_point(alpha = 0.5, color = "#2c7fb8", size = 2) +
+  scale_x_continuous(trans = "log10", labels = comma) +
+  labs(title = "County Connectedness by Population",
+       subtitle = "Larger populations tend to have higher connectedness scores",
+       x = "Population (log scale)",
+       y = "Connectedness Score",
+       caption = "Data from tidyverse dataset") +
+  theme_minimal(base_size = 12) +
+  theme(plot.title = element_text(face = "bold"),
+        panel.grid.minor = element_blank())
+```
 
